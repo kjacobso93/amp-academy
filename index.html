@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florin High Audio & Music Production Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --maroon: #500000;
+            --gold: #CFB87C;
+            --dark: #121212;
+        }
+        .bg-maroon { background-color: var(--maroon); }
+        .text-maroon { color: var(--maroon); }
+        .bg-gold { background-color: var(--gold); }
+        .text-gold { color: var(--gold); }
+        .border-gold { border-color: var(--gold); }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(80, 0, 0, 0.9), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-[#121212] text-white font-sans selection:bg-gold selection:text-maroon">
+
+    <nav class="p-6 flex justify-between items-center border-b border-gray-800 sticky top-0 bg-[#121212] z-50">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-maroon rounded-full flex items-center justify-center border border-gold">
+                <span class="text-gold font-bold">F</span>
+            </div>
+            <span class="text-xl font-bold tracking-tighter uppercase">Florin <span class="text-gold">AMP Academy</span></span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-[0.2em]">
+            <a href="#press" class="hover:text-gold transition">In The Press</a>
+            <a href="#program" class="hover:text-gold transition">The Path</a>
+            <a href="#dj" class="hover:text-gold transition">Book a DJ</a>
+            <a href="#enroll" class="bg-gold text-maroon px-4 py-2 rounded-sm">Enroll Now</a>
+        </div>
+    </nav>
+
+    <header class="hero-gradient h-[85vh] flex items-center justify-center text-center px-4">
+        <div class="max-w-4xl">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-none tracking-tighter uppercase">The Future of <span class="text-gold">Audio</span></h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8 font-light max-w-2xl mx-auto">
+                A 3-Year Professional Academy at Florin High School. Mastering Studio Recording, Sound Design, and Live Production.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center
