@@ -14,25 +14,57 @@
 </head>
 <body class="bg-[#0f0f0f] text-white font-sans">
 
-   <nav class="p-4 flex justify-between items-center border-b border-gray-800 sticky top-0 bg-[#121212] z-50">
-    <div class="flex items-center">
-        <a href="index.html" class="flex items-center group">
-            <img src="images/logo.png" alt="Florin AMP Academy Logo" class="h-24 w-auto mr-4 transition-transform group-hover:scale-105">
-            
-            <div class="flex flex-col">
-                <span class="text-xl font-bold tracking-tighter uppercase leading-none">Florin <span class="text-gold">AMP</span></span>
-                <span class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em]">Academy</span>
-            </div>
-        </a>
+   <nav class="p-4 border-b border-gray-800 sticky top-0 bg-[#121212] z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="flex items-center">
+            <a href="index.html" class="flex items-center group">
+                <img src="images/logo.png" alt="Florin AMP Academy Logo" class="h-10 w-auto mr-3">
+                <div class="flex flex-col">
+                    <span class="text-lg font-bold tracking-tighter uppercase leading-none text-white">Florin <span class="text-gold">AMP</span></span>
+                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em]">Academy</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center">
+            <a href="index.html" class="text-white hover:text-gold transition">Home</a>
+            <a href="studio.html" class="text-white hover:text-gold transition">The Studio</a>
+            <a href="field-trips.html" class="text-white hover:text-gold transition">Field Trips</a>
+            <a href="dj-bookings.html" class="bg-gold text-maroon px-4 py-2 rounded-sm hover:bg-white transition">Book a DJ</a>
+        </div>
+
+        <button id="menu-btn" class="md:hidden text-gold focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
     </div>
-    
-    <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center">
-        <a href="index.html" class="hover:text-gold transition">Home</a>
-        <a href="studio.html" class="hover:text-gold transition">The Studio</a>
-        <a href="field-trips.html" class="hover:text-gold transition">Field Trips</a>
-        <a href="dj-bookings.html" class="bg-gold text-maroon px-4 py-2 rounded-sm hover:bg-white transition">Book a DJ</a>
+
+    <div id="mobile-menu" class="hidden md:hidden flex-col bg-[#1a1a1a] mt-4 p-6 space-y-4 border-t border-gray-800">
+        <a href="index.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">Home</a>
+        <a href="studio.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">The Studio</a>
+        <a href="field-trips.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">Field Trips</a>
+        <a href="dj-bookings.html" class="text-gold font-bold uppercase tracking-widest text-xs">Book a DJ</a>
     </div>
 </nav>
+
+<script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+        
+        // Change icon from hamburger to "X" when open
+        if (menu.classList.contains('flex')) {
+            icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+        } else {
+            icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+        }
+    });
+</script>
 
     <header class="py-24 px-6 text-center bg-fixed bg-center bg-cover" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('images/sony-trip.jpg');">
         <div class="max-w-4xl mx-auto">
