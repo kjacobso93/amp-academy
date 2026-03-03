@@ -6,24 +6,12 @@
     <title>The Studio | Florin AMP Academy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --maroon: #500000;
-            --gold: #CFB87C;
-            --dark: #0a0a0a;
-        }
+        :root { --maroon: #500000; --gold: #CFB87C; }
         .bg-maroon { background-color: var(--maroon); }
         .text-gold { color: var(--gold); }
         .border-gold { border-color: var(--gold); }
-        
-        .spec-card {
-            background: #161616;
-            border: 1px solid #222;
-            transition: all 0.3s ease;
-        }
-        .spec-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-        }
+        .spec-card { background: #161616; border: 1px solid #222; transition: all 0.3s ease; }
+        .spec-card:hover { border-color: var(--gold); transform: translateY(-5px); }
     </style>
 </head>
 <body class="bg-[#0a0a0a] text-white font-sans">
@@ -31,32 +19,29 @@
     <nav class="p-6 flex justify-between items-center border-b border-gray-800 sticky top-0 bg-[#0a0a0a] z-50">
         <div class="flex items-center space-x-3">
             <a href="index.html" class="flex items-center space-x-3">
-                <a href="index.html" class="hover:text-gold transition text-xs uppercase tracking-widest">Home</a>
-                <div class="w-8 h-8 bg-maroon rounded-full flex items-center justify-center border border-gold">
-                    <span class="text-gold font-bold text-xs">F</span>
+                <div class="w-10 h-10 bg-maroon rounded-full flex items-center justify-center border border-gold">
+                    <span class="text-gold font-bold">F</span>
                 </div>
-                <span class="text-lg font-bold tracking-tighter uppercase">AMP <span class="text-gold">Studio</span></span>
+                <span class="text-xl font-bold tracking-tighter uppercase">Florin <span class="text-gold">AMP Academy</span></span>
             </a>
         </div>
-        <div class="hidden md:flex space-x-6 text-[10px] font-bold uppercase tracking-[0.2em]">
+        <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center">
             <a href="index.html" class="hover:text-gold transition">Home</a>
-            <a href="#console" class="hover:text-gold transition">The Console</a>
-            <a href="#software" class="hover:text-gold transition">Software</a>
-            <a href="#outboard" class="hover:text-gold transition">Outboard</a>
+            <a href="studio.html" class="text-gold">The Studio</a>
+            <a href="field-trips.html" class="hover:text-gold transition">Field Trips</a>
+            <a href="dj-bookings.html" class="bg-gold text-maroon px-4 py-2 rounded-sm hover:bg-white transition">Book a DJ</a>
         </div>
     </nav>
 
     <header class="py-24 px-6 border-b border-gray-800 bg-gradient-to-b from-[#1a0000] to-[#0a0a0a]">
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-6xl mx-auto text-center">
             <h2 class="text-gold text-sm font-bold tracking-[0.5em] uppercase mb-4">Facility Profile</h2>
             <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter uppercase">Professional <span class="text-white">Environment</span></h1>
-            <p class="text-gray-400 max-w-2xl text-lg leading-relaxed">
-                Completed in 2022, our studio features a large control room and tracking space separated by an acoustically treated wall with a large observation window.
-            </p>
+            <img src="images/audient-wide.jpg" alt="Wide view of the Audient Heritage Edition console at Florin High School" class="w-full mt-12 rounded-xl shadow-2xl border-2 border-gray-800">
         </div>
     </header>
 
-    <section id="console" class="py-24 px-6">
+    <section class="py-24 px-6">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div>
                 <div class="inline-block px-3 py-1 border border-gold text-gold text-[10px] font-bold uppercase mb-6 tracking-widest">Centerpiece</div>
@@ -71,62 +56,9 @@
                     <div class="p-4 bg-maroon/20 rounded border border-maroon/50">Mastering Grade EQ</div>
                 </div>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-2xl border border-gray-800">
-                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80" alt="Audient Console Detail" class="w-full grayscale hover:grayscale-0 transition duration-700">
-            </div>
-        </div>
-    </section>
-
-    <section id="software" class="py-24 px-6 bg-[#111]">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h3 class="text-3xl font-bold uppercase tracking-tighter">The Digital <span class="text-gold">Stack</span></h3>
-                <p class="text-gray-500 mt-2">Industry-standard tools for production, sound design, and restoration.</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="spec-card p-6 rounded-xl text-center">
-                    <h4 class="font-bold text-gold mb-2">Ableton Live</h4>
-                    <p class="text-[10px] text-gray-500 uppercase tracking-widest">Primary DAW</p>
-                </div>
-                <div class="spec-card p-6 rounded-xl text-center">
-                    <h4 class="font-bold text-gold mb-2">Logic Pro</h4>
-                    <p class="text-[10px] text-gray-500 uppercase tracking-widest">Secondary DAW</p>
-                </div>
-                <div class="spec-card p-6 rounded-xl text-center">
-                    <h4 class="font-bold text-gold mb-2">iZotope Rx</h4>
-                    <p class="text-[10px] text-gray-500 uppercase tracking-widest">Audio Restoration</p>
-                </div>
-                <div class="spec-card p-6 rounded-xl text-center">
-                    <h4 class="font-bold text-gold mb-2">Krotos Suite</h4>
-                    <p class="text-[10px] text-gray-500 uppercase tracking-widest">Sound Design</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="outboard" class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="md:col-span-2">
-                    <h3 class="text-3xl font-bold mb-8 uppercase tracking-tighter">Monitoring & <span class="text-gold">Control</span></h3>
-                    <p class="text-gray-400 mb-8">
-                        Our control room utilizes an <strong>Avid S3</strong> for tactile DAW control, integrated under a curved widescreen monitor for an ergonomic, modern workflow. Our external patch bay allows students to quickly route signals through our outboard racks.
-                    </p>
-                    <div class="border-l-4 border-maroon pl-6 italic text-gray-400">
-                        "Incredible program, the likes of which I have never seen at a high school." 
-                        <span class="block mt-2 font-bold text-white not-italic">— Kirt Shearer, American River College</span>
-                    </div>
-                </div>
-                <div class="space-y-4">
-                    <h4 class="text-xs font-black uppercase tracking-[0.3em] text-gold">Technical Partners</h4>
-                    <ul class="text-sm space-y-2 text-gray-500 uppercase font-bold">
-                        <li>&rarr; Audient</li>
-                        <li>&rarr; Avid</li>
-                        <li>&rarr; Native Instruments</li>
-                        <li>&rarr; Xfer Serum</li>
-                        <li>&rarr; American River College</li>
-                    </ul>
-                </div>
+            <div class="space-y-6">
+                <img src="images/students-at-console.jpg" alt="AMP Academy students learning mixing on the Audient ASP8024-HE console" class="w-full rounded-xl border border-gray-800 shadow-xl">
+                <img src="images/john-cronin.jpg" alt="AMP Academy Coordinator John Cronin in the Florin High recording studio" class="w-full rounded-xl border border-gray-800 shadow-xl">
             </div>
         </div>
     </section>
