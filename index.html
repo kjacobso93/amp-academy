@@ -6,21 +6,15 @@
     <title>Florin High Audio & Music Production Academy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --maroon: #500000;
-            --gold: #CFB87C;
-            --dark: #121212;
-        }
+        :root { --maroon: #500000; --gold: #CFB87C; }
         .bg-maroon { background-color: var(--maroon); }
         .text-maroon { color: var(--maroon); }
         .bg-gold { background-color: var(--gold); }
         .text-gold { color: var(--gold); }
         .border-gold { border-color: var(--gold); }
-        
         .hero-gradient {
-            background: linear-gradient(rgba(80, 0, 0, 0.9), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(rgba(80, 0, 0, 0.9), rgba(18, 18, 18, 1)), url('images/sony-trip.jpg');
+            background-size: cover; background-position: center;
         }
     </style>
 </head>
@@ -28,17 +22,18 @@
 
     <nav class="p-6 flex justify-between items-center border-b border-gray-800 sticky top-0 bg-[#121212] z-50">
         <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 bg-maroon rounded-full flex items-center justify-center border border-gold">
-                <span class="text-gold font-bold">F</span>
-            </div>
-            <span class="text-xl font-bold tracking-tighter uppercase">Florin <span class="text-gold">AMP Academy</span></span>
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-maroon rounded-full flex items-center justify-center border border-gold">
+                    <span class="text-gold font-bold">F</span>
+                </div>
+                <span class="text-xl font-bold tracking-tighter uppercase">Florin <span class="text-gold">AMP Academy</span></span>
+            </a>
         </div>
-        <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-[0.2em]">
-            <a href="studio.html" class="hover:text-gold transition text-xs uppercase tracking-widest">The Studio</a>
-            <a href="#press" class="hover:text-gold transition">In The Press</a>
-            <a href="#program" class="hover:text-gold transition">The Path</a>
-            <a href="#dj" class="hover:text-gold transition">Book a DJ</a>
-            <a href="#enroll" class="bg-gold text-maroon px-4 py-2 rounded-sm">Enroll Now</a>
+        <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center">
+            <a href="index.html" class="hover:text-gold transition">Home</a>
+            <a href="studio.html" class="hover:text-gold transition">The Studio</a>
+            <a href="field-trips.html" class="hover:text-gold transition">Field Trips</a>
+            <a href="dj-bookings.html" class="bg-gold text-maroon px-4 py-2 rounded-sm hover:bg-white transition">Book a DJ</a>
         </div>
     </nav>
 
@@ -48,4 +43,55 @@
             <p class="text-lg md:text-xl text-gray-300 mb-8 font-light max-w-2xl mx-auto">
                 A 3-Year Professional Academy at Florin High School. Mastering Studio Recording, Sound Design, and Live Production.
             </p>
-            <div class="flex flex-col md:flex-row justify-center
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="dj-bookings.html" class="bg-maroon border border-gold px-10 py-4 rounded-full font-bold hover:bg-red-900 transition tracking-widest text-xs uppercase">Hire Student DJs</a>
+                <a href="#press" class="bg-gold text-maroon px-10 py-4 rounded-full font-bold hover:bg-white transition tracking-widest text-xs uppercase">View Press Coverage</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="press" class="py-24 px-6 bg-white text-black">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-maroon text-sm font-bold tracking-[0.4em] uppercase mb-12">As Featured In</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <a href="https://www.mixonline.com/recording/music-production/recording-at-florin-high-school-amp-academy" target="_blank" class="block p-8 border-2 border-gray-100 rounded-xl hover:border-maroon transition text-left group">
+                    <h4 class="text-2xl font-black mb-2 group-hover:text-maroon">MIX MAGAZINE</h4>
+                    <p class="text-gray-600 italic mb-4">"Florin High School is home to the AMP Academy, a professional studio teaching students the basics of recording."</p>
+                    <span class="text-maroon font-bold text-xs uppercase tracking-widest">Read Article &rarr;</span>
+                </a>
+                <a href="https://audient.com/news/2024/10/21/high-school/" target="_blank" class="block p-8 border-2 border-gray-100 rounded-xl hover:border-maroon transition text-left group">
+                    <h4 class="text-2xl font-black mb-2 group-hover:text-maroon">AUDIENT WORLD</h4>
+                    <p class="text-gray-600 italic mb-4">"High School Audio Program wows with professional Audient ASP8024-HE console at its heart."</p>
+                    <span class="text-maroon font-bold text-xs uppercase tracking-widest">Read Story &rarr;</span>
+                </a>
+            </div>
+            <div class="mt-16 pt-12 border-t border-gray-200">
+                <p class="text-[10px] text-gray-400 uppercase tracking-[0.3em] mb-8 font-bold">Professional Partners</p>
+                <div class="flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition duration-500">
+                    <span class="text-xl font-bold">AUDIENT</span>
+                    <span class="text-xl font-bold">AVID</span>
+                    <span class="text-xl font-bold">ABLETON</span>
+                    <span class="text-xl font-bold">AMERICAN RIVER COLLEGE</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dj" class="py-24 px-6 bg-maroon text-center">
+        <div class="max-w-4xl mx-auto">
+            <img src="images/conference-dj.jpg" alt="Florin High students DJing on stage at the Educating for Careers Conference" class="w-full h-auto rounded-xl shadow-2xl mb-12 border-4 border-gold">
+            <h2 class="text-4xl md:text-5xl font-black mb-6 italic uppercase tracking-tighter">Support Our <span class="text-gold">Fundraising</span></h2>
+            <p class="text-lg mb-10 opacity-90">Our student DJs provide professional sound and lighting for school dances, local events, and state conferences. All proceeds fund our studio equipment and field trips to SoCal.</p>
+            <a href="dj-bookings.html" class="inline-block bg-gold text-maroon px-10 py-4 rounded-full font-black text-xl hover:scale-105 transition transform">
+                REQUEST A BOOKING
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 border-t border-gray-800 text-center text-gray-500 text-xs bg-[#0a0a0a]">
+        <p class="uppercase tracking-widest mb-4">Florin High School &bull; Audio Music Production Academy</p>
+        <p>&copy; 2026 Florin High School. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
