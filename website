@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florin High Audio & Music Production Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --maroon: #500000;
+            --gold: #CFB87C;
+            --dark: #121212;
+        }
+        .bg-maroon { background-color: var(--maroon); }
+        .text-maroon { color: var(--maroon); }
+        .bg-gold { background-color: var(--gold); }
+        .text-gold { color: var(--gold); }
+        .border-gold { border-color: var(--gold); }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(80, 0, 0, 0.8), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-[#121212] text-white font-sans">
+
+    <nav class="p-6 flex justify-between items-center border-b border-gray-800">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-maroon rounded-full flex items-center justify-center border border-gold">
+                <span class="text-gold font-bold">F</span>
+            </div>
+            <span class="text-xl font-bold tracking-tighter">FLORIN <span class="text-gold">AUDIO ACADEMY</span></span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
+            <a href="#about" class="hover:text-gold transition">About</a>
+            <a href="#studios" class="hover:text-gold transition">Industry Trips</a>
+            <a href="#dj" class="hover:text-gold transition">Book a DJ</a>
+            <a href="#contact" class="bg-gold text-maroon px-4 py-2 rounded-sm font-bold">Enroll</a>
+        </div>
+    </nav>
+
+    <header class="hero-gradient h-[80vh] flex items-center justify-center text-center px-4">
+        <div class="max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">THE NEXT GENERATION OF <span class="text-gold">SOUND</span></h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 font-light italic">From Florin High to Sony, Paramount, and Warner Bros. Studios.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#dj" class="bg-maroon border border-gold px-8 py-4 rounded-full font-bold hover:bg-red-900 transition">Book Student DJs</a>
+                <a href="#studios" class="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition">Explore the Academy</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="studios" class="py-24 px-6 bg-[#1a1a1a]">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-gold text-sm font-bold tracking-[0.3em] uppercase mb-2">Industry Immersion</h2>
+                    <h3 class="text-4xl font-bold mb-6">Real-World Experience at Major Studios</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Our students don't just learn in the classroom. We take our training to the heart of the industry, visiting <strong>Sony, Paramount, and Warner Brothers Studios</strong> in Southern California to master ADR and professional post-production audio.
+                    </p>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div class="p-4 border border-gray-700 rounded-lg">
+                            <div class="text-gold font-bold text-xl mb-1">ADR</div>
+                            <div class="text-[10px] text-gray-500 uppercase">Dialogue</div>
+                        </div>
+                        <div class="p-4 border border-gray-700 rounded-lg">
+                            <div class="text-gold font-bold text-xl mb-1">Foley</div>
+                            <div class="text-[10px] text-gray-500 uppercase">Sound FX</div>
+                        </div>
+                        <div class="p-4 border border-gray-700 rounded-lg">
+                            <div class="text-gold font-bold text-xl mb-1">Mixing</div>
+                            <div class="text-[10px] text-gray-500 uppercase">Mastering</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="h-64 bg-gray-800 rounded-lg bg-cover bg-center border-2 border-maroon" style="background-image: url('https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&q=80')"></div>
+                    <div class="h-64 mt-8 bg-gray-800 rounded-lg bg-cover bg-center border-2 border-gold" style="background-image: url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&q=80')"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dj" class="py-24 px-6 bg-maroon text-white text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl font-bold mb-4 italic">Need a DJ for your next dance?</h2>
+            <p class="text-lg mb-10 opacity-90">Our Academy students provide professional DJ services for school events. Support our program and get a high-quality audio experience for your students.</p>
+            <button class="bg-gold text-maroon px-10 py-4 rounded-full font-black text-xl hover:scale-105 transition transform">
+                REQUEST BOOKING INFO
+            </button>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 border-t border-gray-800 text-center">
+        <p class="text-gray-500 text-sm">&copy; 2026 Florin High School Audio Music Production Academy</p>
+        <p class="text-gold text-xs mt-2 uppercase tracking-widest">Sacramento, CA</p>
+    </footer>
+
+</body>
+</html>
