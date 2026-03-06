@@ -12,48 +12,44 @@
         .border-gold { border-color: #CFB87C; }
     </style>
 </head>
-<body class="bg-[#0f0f0f] text-white font-sans">
-
-   <body class="bg-[#121212] text-white font-sans">
-
-    <nav class="p-4 border-b border-gray-800 sticky top-0 bg-[#121212] z-50">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            
-            <div class="flex items-center">
-                <a href="index.html" class="flex items-center group">
-                    <img src="images/logo.png" alt="Florin AMP Academy Logo" class="h-10 w-auto mr-3">
-                    <div class="flex flex-col">
-                        <span class="text-lg font-bold tracking-tighter uppercase leading-none text-white">Florin <span class="text-gold">AMP</span></span>
-                        <span class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em]">Academy</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center">
-                <a href="index.html" class="text-white hover:text-gold transition">Home</a>
-                <a href="studio.html" class="text-white hover:text-gold transition">The Studio</a>
-                <a href="work.html" class="text-white hover:text-gold transition">Student Work</a>
-                <a href="teachers.html" class="text-gold border-b border-gold transition">Meet the Faculty</a>
-                <a href="field-trips.html" class="text-white hover:text-gold transition">Field Trips</a>
-                <a href="dj-bookings.html" class="bg-gold text-maroon px-4 py-2 rounded-sm hover:bg-white transition">Book a DJ</a>
-            </div>
-
-            <button id="menu-btn" class="md:hidden text-gold focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+<nav class="p-4 border-b border-gray-800 sticky top-0 bg-[#121212] z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="flex items-center">
+            <a href="index.html" class="flex items-center group">
+                <img src="images/logo.png" alt="Florin AMP Academy Logo" class="h-10 w-auto mr-3">
+                <div class="flex flex-col">
+                    <span class="text-lg font-bold tracking-tighter uppercase leading-none text-white">Florin <span class="text-gold">AMP</span></span>
+                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em]">Academy</span>
+                </div>
+            </a>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden flex-col bg-[#1a1a1a] mt-4 p-6 space-y-4 border-t border-gray-800">
-            <a href="index.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">Home</a>
-            <a href="studio.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">The Studio</a>
-            <a href="work.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">Student Work</a>
-            <a href="teachers.html" class="text-gold font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">Meet the Faculty</a>
-            <a href="field-trips.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">Field Trips</a>
-            <a href="dj-bookings.html" class="text-gold font-bold uppercase tracking-widest text-xs">Book a DJ</a>
+        <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center">
+            <a href="index.html" class="text-white hover:text-gold transition">Home</a>
+            <a href="studio.html" class="text-white hover:text-gold transition">The Studio</a>
+            <a href="work.html" class="text-white hover:text-gold transition">Student Work</a>
+            <a href="teachers.html" class="text-white hover:text-gold transition">Meet the Faculty</a>
+            <a href="field-trips.html" class="text-white hover:text-gold transition">Field Trips</a>
+            <a href="dj-bookings.html" class="bg-gold text-maroon px-4 py-2 rounded-sm hover:bg-white transition">Book a DJ</a>
         </div>
-    </nav>
+
+        <button id="menu-btn" class="md:hidden text-gold focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden flex-col bg-[#1a1a1a] mt-4 p-6 space-y-4 border-t border-gray-800">
+        <a href="index.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">Home</a>
+        <a href="studio.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">The Studio</a>
+        <a href="work.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">Student Work</a>
+        <a href="teachers.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">Meet the Faculty</a>
+        <a href="field-trips.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">Field Trips</a>
+        <a href="dj-bookings.html" class="text-gold font-bold uppercase tracking-widest text-xs">Book a DJ</a>
+    </div>
+</nav>
+
 
     <header class="py-24 px-6 text-center bg-fixed bg-center bg-cover" style="background-image: linear-gradient(rgba(0,0,0,0.85), rgba(15,15,15,1)), url('images/lab.jpg');">
         <div class="max-w-4xl mx-auto">
