@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Work | Florin AMP Academy</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .text-gold { color: #CFB87C; }
+        .bg-maroon { background-color: #500000; }
+        .border-gold { border-color: #CFB87C; }
+    </style>
+</head>
+<body class="bg-[#0f0f0f] text-white font-sans">
+
+    <header class="py-24 px-6 text-center bg-fixed bg-center bg-cover" style="background-image: linear-gradient(rgba(0,0,0,0.85), rgba(15,15,15,1)), url('images/lab.jpg');">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-gold text-sm font-bold tracking-[0.5em] uppercase mb-4">The Portfolio</h2>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter uppercase">Student <span class="text-gold">Work</span></h1>
+            <p class="text-gray-400 text-lg">Original productions, mixes, and sound design from the Florin High studio.</p>
+        </div>
+    </header>
+
+    <section class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12">
+            
+            <div class="bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800 hover:border-gold transition group">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold uppercase italic text-white group-hover:text-gold transition">Original Mix 01</h3>
+                        <p class="text-gray-500 text-xs uppercase tracking-widest mt-1">Studio A | Audient Tracking</p>
+                    </div>
+                    <span class="text-gold text-xs font-black">2026</span>
+                </div>
+                <audio controls class="w-full mb-6 opacity-80">
+                    <source src="audio/student-mix-1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    A full band recording session focused on live drum tracking and signal flow through our **Audient console**.
+                </p>
+            </div>
+
+            <div class="bg-[#1a1a1a] p-8 rounded-2xl border border-gray-800 hover:border-gold transition group">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold uppercase italic text-white group-hover:text-gold transition">Electronic Production</h3>
+                        <p class="text-gray-500 text-xs uppercase tracking-widest mt-1">Lab B | Ableton Live</p>
+                    </div>
+                    <span class="text-gold text-xs font-black">2026</span>
+                </div>
+                <audio controls class="w-full mb-6 opacity-80">
+                    <source src="audio/beat-production.mp3" type="audio/mpeg">
+                </audio>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Students utilize **Ableton Live** for MIDI sequencing and beatmaking, mastering the fundamentals of modern music production.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="mt-24 text-center p-12 bg-white rounded-3xl text-black">
+            <h2 class="text-3xl font-black uppercase mb-4 text-maroon">Ready to Start Your Project?</h2>
+            <p class="text-gray-600 mb-8 max-w-xl mx-auto italic">
+                Our students are trained to take a song from "no prior knowledge" to a finished, radio-ready product.
+            </p>
+            <a href="mailto:fhsampacademy@gmail.com" class="inline-block bg-maroon text-white px-10 py-4 rounded-full font-black tracking-widest text-xs hover:bg-gold hover:text-maroon transition">Contact the Academy</a>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-gray-800 text-center text-gray-500 text-[10px] uppercase tracking-widest">
+        Florin High School &bull; Audio Music Production Academy &copy; 2026
+    </footer>
+
+    </body>
+</html>
