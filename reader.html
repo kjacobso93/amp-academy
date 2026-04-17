@@ -44,12 +44,14 @@
                 // VERIFY: Does your file name match EXACTLY (no spaces, all lowercase)?
                 var book = ePub("documents/student-ebook.epub");
                 
-                var rendition = book.renderTo("viewer", {
-                    width: "100%",
-                    height: "100%",
-                    flow: "paginated",
-                    manager: "default"
-                });
+              var rendition = book.renderTo("viewer", {
+    width: "100%",
+    height: "100%",
+    flow: "paginated",
+    manager: "default",
+    // ALLOW SCRIPTING: This tells the reader to let the ePub's buttons work
+    allowScriptedContent: true 
+});
 
                 rendition.display().then(function() {
                     document.getElementById("loading-status").textContent = "Use buttons to navigate.";
