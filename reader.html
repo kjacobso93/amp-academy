@@ -31,11 +31,9 @@
     </section>
 
   <script>
-    // Added a CORS proxy to the front of the URL to bypass browser security blocks
-    var proxy = "https://cors-anywhere.herokuapp.com/";
-    var driveUrl = "https://drive.google.com/uc?export=download&id=1btkrelvRiGqzqI0Kw2HmhD5R7KVSyg8U";
-    
-    var book = ePub(proxy + driveUrl);
+    // Point the reader to your local GitHub folder
+    // This is more reliable than Google Drive!
+    var book = ePub("documents/student-book.epub");
     
     var rendition = book.renderTo("viewer", {
         width: "100%",
@@ -46,7 +44,7 @@
 
     var display = rendition.display();
 
-    // Navigation Logic remains the same...
+    // Navigation Logic
     document.getElementById("next").addEventListener("click", function(e){
         rendition.next();
         e.preventDefault();
