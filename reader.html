@@ -46,38 +46,44 @@
     </section>
 
     <script>
-        // Use the local path - Ensure the file name is EXACTLY this in your documents folder
-        var book = ePub("documents/student-ebook.epub");
-        
-        var rendition = book.renderTo("viewer", {
-            width: "100%",
-            height: "100%",
-            flow: "paginated",
-            manager: "default"
-        });
+    // This ensures 'ePub' is defined before we use it
+    window.onload = function() {
+        try {
+            // 1. Path to your ebook - check for exact matching name!
+            var book = ePub("documents/student-ebook.epub");
+            
+            var rendition = book.renderTo("viewer", {
+                width: "100%",
+                height: "100%",
+                flow: "paginated",
+                manager: "default"
+            });
 
-        // Start the book
-        var display = rendition.display();
+            // 2. Display the book
+            var display = rendition.display();
 
-        // Update status when loaded
-        book.ready.then(function() {
-            document.getElementById("loading-status").textContent = "Guide Loaded. Use buttons to navigate.";
-            document.getElementById("loading-status").classList.remove("animate-pulse");
-        }).catch(function(err) {
-            document.getElementById("loading-status").textContent = "Error: File not found in /documents folder.";
-            console.error(err);
-        });
+            // 3. Status updates
+            book.ready.then(function() {
+                document.getElementById("loading-status").textContent = "Guide Loaded. Use buttons to navigate.";
+                document.getElementById("loading-status").classList.remove("animate-pulse");
+            });
 
-        // Navigation Logic
-        document.getElementById("next").addEventListener("click", function(e){
-            rendition.next();
-            e.preventDefault();
-        }, false);
+            // 4. Navigation Logic
+            document.getElementById("next").addEventListener("click", function(e){
+                rendition.next();
+                e.preventDefault();
+            }, false);
 
-        document.getElementById("prev").addEventListener("click", function(e){
-            rendition.prev();
-            e.preventDefault();
-        }, false);
-    </script>
+            document.getElementById("prev").addEventListener("click", function(e){
+                rendition.prev();
+                e.preventDefault();
+            }, false);
+
+        } catch (error) {
+            console.error("EPUB.js initialization failed:", error);
+            document.getElementById("loading-status").textContent = "Error loading reader engine.";
+        }
+    };
+</script>
 </body>
 </html>
