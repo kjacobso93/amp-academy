@@ -1,58 +1,54 @@
-<nav class="p-4 border-b border-gray-800 sticky top-0 bg-[#121212] z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <div class="flex items-center">
-            <a href="index.html" class="flex items-center group">
-                <img src="images/logo.png" alt="Florin AMP Academy Logo" class="h-10 w-auto mr-3">
-                <div class="flex flex-col">
-                    <span class="text-lg font-bold tracking-tighter uppercase leading-none text-white">Florin <span class="text-gold">AMP</span></span>
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em]">Academy</span>
-                </div>
-            </a>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Ebook | Florin AMP Academy</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/epub.js/0.3.88/epub.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-        <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-[0.2em] items-center">
-            <a href="index.html" class="text-white hover:text-gold transition">Home</a>
-            <a href="studio.html" class="text-white hover:text-gold transition">The Studio</a>
-            <a href="work.html" class="text-white hover:text-gold transition">Student Work</a>
-            <a href="teachers.html" class="text-white hover:text-gold transition">Meet the Faculty</a>
-            <a href="field-trips.html" class="text-white hover:text-gold transition">Field Trips</a>
-            <a href="dj-bookings.html" class="bg-gold text-maroon px-4 py-2 rounded-sm hover:bg-white transition">Book a DJ</a>
-        </div>
-
-        <button id="menu-btn" class="md:hidden text-gold focus:outline-none">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
-    </div>
-
-    <div id="mobile-menu" class="hidden md:hidden flex-col bg-[#1a1a1a] mt-4 p-6 space-y-4 border-t border-gray-800">
-        <a href="index.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">Home</a>
-        <a href="studio.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">The Studio</a>
-        <a href="work.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">Student Work</a>
-        <a href="teachers.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">Meet the Faculty</a>
-        <a href="field-trips.html" class="text-white font-bold uppercase tracking-widest text-xs border-b border-gray-800 pb-2">Field Trips</a>
-        <a href="dj-bookings.html" class="text-gold font-bold uppercase tracking-widest text-xs">Book a DJ</a>
-    </div>
-</nav>
-
-
+    <style>
+        .text-gold { color: #CFB87C; }
+        .bg-maroon { background-color: #500000; }
+        /* Ensuring the viewer has a solid height */
+        #viewer { 
+            width: 100%; 
+            height: 600px; 
+            background: white; 
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
 <body class="bg-[#0f0f0f] text-white font-sans">
 
     <section class="py-12 px-6 max-w-5xl mx-auto">
         <div class="mb-12 text-center">
             <h1 class="text-4xl font-black uppercase tracking-tighter mb-4">Interactive <span class="text-gold">Production Guide</span></h1>
-            <p id="status" class="text-gold font-bold animate-pulse">Loading Academy Ebook...</p>
+            <p id="loading-status" class="text-gold animate-pulse">Initializing Academy Reader...</p>
         </div>
 
         <div class="relative bg-white rounded-xl shadow-2xl p-2">
             <div id="viewer"></div>
+            
+            <div class="flex justify-between p-4 bg-gray-100 rounded-b-xl border-t border-gray-200">
+                <button id="prev" class="bg-maroon text-white px-6 py-2 rounded font-bold uppercase text-xs hover:bg-gold hover:text-maroon transition">Prev</button>
+                <button id="next" class="bg-maroon text-white px-6 py-2 rounded font-bold uppercase text-xs hover:bg-gold hover:text-maroon transition">Next</button>
             </div>
+        </div>
+        
+        <div class="mt-8 text-center">
+            <a href="work.html" class="text-gray-500 hover:text-gold text-xs uppercase tracking-widest transition">← Back to Student Work</a>
+        </div>
     </section>
 
     <script>
-        // Ensure this matches your GitHub file name exactly!
-        var book = ePub("documents/student-ebook.epub"); 
+        // Use the local path - Ensure the file name is EXACTLY this in your documents folder
+        var book = ePub("documents/student-ebook.epub");
+        
         var rendition = book.renderTo("viewer", {
             width: "100%",
             height: "100%",
@@ -60,12 +56,16 @@
             manager: "default"
         });
 
+        // Start the book
         var display = rendition.display();
 
-        // Status update when book loads
-        display.then(function() {
-            document.getElementById("status").textContent = "Use buttons or arrow keys to read";
-            document.getElementById("status").classList.remove("animate-pulse");
+        // Update status when loaded
+        book.ready.then(function() {
+            document.getElementById("loading-status").textContent = "Guide Loaded. Use buttons to navigate.";
+            document.getElementById("loading-status").classList.remove("animate-pulse");
+        }).catch(function(err) {
+            document.getElementById("loading-status").textContent = "Error: File not found in /documents folder.";
+            console.error(err);
         });
 
         // Navigation Logic
@@ -80,3 +80,4 @@
         }, false);
     </script>
 </body>
+</html>
