@@ -4,23 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Ebook | Florin AMP Academy</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/epub.js/0.3.88/epub.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.93/dist/epub.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         .text-gold { color: #CFB87C; }
         .bg-maroon { background-color: #500000; }
-        /* Ensuring the viewer has a solid height */
-        #viewer { 
-            width: 100%; 
-            height: 600px; 
-            background: white; 
-            border-radius: 8px;
-            overflow: hidden;
-        }
+        #viewer { width: 100%; height: 600px; background: white; border-radius: 8px; overflow: hidden; }
     </style>
 </head>
 <body class="bg-[#0f0f0f] text-white font-sans">
@@ -33,57 +25,47 @@
 
         <div class="relative bg-white rounded-xl shadow-2xl p-2">
             <div id="viewer"></div>
-            
             <div class="flex justify-between p-4 bg-gray-100 rounded-b-xl border-t border-gray-200">
-                <button id="prev" class="bg-maroon text-white px-6 py-2 rounded font-bold uppercase text-xs hover:bg-gold hover:text-maroon transition">Prev</button>
-                <button id="next" class="bg-maroon text-white px-6 py-2 rounded font-bold uppercase text-xs hover:bg-gold hover:text-maroon transition">Next</button>
+                <button id="prev" class="bg-maroon text-white px-6 py-2 rounded font-bold uppercase text-xs hover:bg-gold transition">Prev</button>
+                <button id="next" class="bg-maroon text-white px-6 py-2 rounded font-bold uppercase text-xs hover:bg-gold transition">Next</button>
             </div>
-        </div>
-        
-        <div class="mt-8 text-center">
-            <a href="work.html" class="text-gray-500 hover:text-gold text-xs uppercase tracking-widest transition">← Back to Student Work</a>
         </div>
     </section>
 
     <script>
-    // This ensures 'ePub' is defined before we use it
-    window.onload = function() {
-        try {
-            // 1. Path to your ebook - check for exact matching name!
-            var book = ePub("documents/student-ebook.epub");
-            
-            var rendition = book.renderTo("viewer", {
-                width: "100%",
-                height: "100%",
-                flow: "paginated",
-                manager: "default"
-            });
+        window.onload = function() {
+            // Check if ePub is actually loaded
+            if (typeof ePub === 'undefined') {
+                document.getElementById("loading-status").textContent = "Error: ePub library failed to load from server.";
+                return;
+            }
 
-            // 2. Display the book
-            var display = rendition.display();
+            try {
+                // VERIFY: Does your file name match EXACTLY (no spaces, all lowercase)?
+                var book = ePub("documents/student-ebook.epub");
+                
+                var rendition = book.renderTo("viewer", {
+                    width: "100%",
+                    height: "100%",
+                    flow: "paginated",
+                    manager: "default"
+                });
 
-            // 3. Status updates
-            book.ready.then(function() {
-                document.getElementById("loading-status").textContent = "Guide Loaded. Use buttons to navigate.";
-                document.getElementById("loading-status").classList.remove("animate-pulse");
-            });
+                rendition.display().then(function() {
+                    document.getElementById("loading-status").textContent = "Use buttons to navigate.";
+                    document.getElementById("loading-status").classList.remove("animate-pulse");
+                }).catch(function(err) {
+                    document.getElementById("loading-status").textContent = "Error: Could not find the .epub file.";
+                });
 
-            // 4. Navigation Logic
-            document.getElementById("next").addEventListener("click", function(e){
-                rendition.next();
-                e.preventDefault();
-            }, false);
+                document.getElementById("next").onclick = function(e) { rendition.next(); e.preventDefault(); };
+                document.getElementById("prev").onclick = function(e) { rendition.prev(); e.preventDefault(); };
 
-            document.getElementById("prev").addEventListener("click", function(e){
-                rendition.prev();
-                e.preventDefault();
-            }, false);
-
-        } catch (error) {
-            console.error("EPUB.js initialization failed:", error);
-            document.getElementById("loading-status").textContent = "Error loading reader engine.";
-        }
-    };
-</script>
+            } catch (e) {
+                document.getElementById("loading-status").textContent = "Reader Error: Check console for details.";
+                console.error(e);
+            }
+        };
+    </script>
 </body>
 </html>
