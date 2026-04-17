@@ -30,11 +30,13 @@
         </div>
     </section>
 
-    <script>
-    // 1. Path to your ebook on Google Drive
-    var book = ePub("https://drive.google.com/uc?export=download&id=1btkrelvRiGqzqI0Kw2HmhD5R7KVSyg8U");
+  <script>
+    // Added a CORS proxy to the front of the URL to bypass browser security blocks
+    var proxy = "https://cors-anywhere.herokuapp.com/";
+    var driveUrl = "https://drive.google.com/uc?export=download&id=1btkrelvRiGqzqI0Kw2HmhD5R7KVSyg8U";
     
-    // 2. THIS WAS THE MISSING PART: We must define 'rendition'
+    var book = ePub(proxy + driveUrl);
+    
     var rendition = book.renderTo("viewer", {
         width: "100%",
         height: "100%",
@@ -42,10 +44,9 @@
         manager: "default"
     });
 
-    // 3. Display the book
     var display = rendition.display();
 
-    // 4. Navigation Logic
+    // Navigation Logic remains the same...
     document.getElementById("next").addEventListener("click", function(e){
         rendition.next();
         e.preventDefault();
@@ -54,12 +55,6 @@
     document.getElementById("prev").addEventListener("click", function(e){
         rendition.prev();
         e.preventDefault();
-    }, false);
-
-    // 5. Keyboard Support
-    document.addEventListener("keyup", function(e){
-        if ((e.keyCode || e.which) == 37) rendition.prev();
-        if ((e.keyCode || e.which) == 39) rendition.next();
     }, false);
 </script>
 
