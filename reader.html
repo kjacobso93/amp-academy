@@ -4,57 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Ebook | Florin AMP Academy</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/epub.js/0.3.88/epub.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.93/dist/epub.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         .text-gold { color: #CFB87C; }
-        #viewer { width: 100%; height: 600px; background: white; border-radius: 8px; }
+        .bg-maroon { background-color: #500000; }
+        #viewer { width: 100%; height: 300px; background: white; border-radius: 8px; overflow: hidden; }
     </style>
 </head>
 <body class="bg-[#0f0f0f] text-white font-sans">
 
     <section class="py-12 px-6 max-w-5xl mx-auto">
         <div class="mb-12 text-center">
-            <h1 class="text-4xl font-black uppercase tracking-tighter mb-4">Interactive <span class="text-gold">Production Guide</span></h1>
-            <p class="text-gray-400">Read the guide and listen to student-produced audio examples below.</p>
+            <h1 class="text-4xl font-black uppercase tracking-tighter mb-4">Interactive <span class="text-gold">WWI Poetry</span></h1>
+            <p id="loading-status" class="text-gold animate-pulse">Initializing Academy Reader...</p>
         </div>
 
         <div class="relative bg-white rounded-xl shadow-2xl p-2">
             <div id="viewer"></div>
-            
             <div class="flex justify-between p-4 bg-gray-100 rounded-b-xl border-t border-gray-200">
-                <button id="prev" class="bg-maroon text-white px-6 py-2 rounded font-bold uppercase text-xs hover:bg-gold hover:text-maroon transition">Prev</button>
-                <button id="next" class="bg-maroon text-white px-6 py-2 rounded font-bold uppercase text-xs hover:bg-gold hover:text-maroon transition">Next</button>
+                <button id="prev" class="bg-maroon text-white px-6 py-2 rounded font-bold uppercase text-xs hover:bg-gold transition">Prev</button>
+                <button id="next" class="bg-maroon text-white px-6 py-2 rounded font-bold uppercase text-xs hover:bg-gold transition">Next</button>
             </div>
         </div>
+
+        <div class="fixed top-6 left-6 z-[60]">
+    <a href="work.html" class="flex items-center group bg-black/50 backdrop-blur-md border border-gray-800 px-4 py-2 rounded-full hover:border-gold transition duration-300">
+        <svg class="w-4 h-4 text-gold mr-2 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-white group-hover:text-gold transition">Back to Work</span>
+    </a>
+</div>
     </section>
 
-  <script>
-    // Point the reader to your local GitHub folder
-    // This is more reliable than Google Drive!
-    var book = ePub("documents/student-book.epub");
-    
-    var rendition = book.renderTo("viewer", {
-        width: "100%",
-        height: "100%",
-        flow: "paginated",
-        manager: "default"
-    });
+    <script>
+        window.onload = function() {
+            // Check if ePub is actually loaded
+            if (typeof ePub === 'undefined') {
+                document.getElementById("loading-status").textContent = "Error: ePub library failed to load from server.";
+                return;
+            }
 
-    var display = rendition.display();
+            try {
+                // VERIFY: Does your file name match EXACTLY (no spaces, all lowercase)?
+                var book = ePub("documents/student-ebook.epub");
+                
+              var rendition = book.renderTo("viewer", {
+    width: "100%",
+    height: "100%",
+    flow: "paginated",
+    manager: "default",
+    // ALLOW SCRIPTING: This tells the reader to let the ePub's buttons work
+    allowScriptedContent: true 
+});
 
-    // Navigation Logic
-    document.getElementById("next").addEventListener("click", function(e){
-        rendition.next();
-        e.preventDefault();
-    }, false);
+                rendition.display().then(function() {
+                    document.getElementById("loading-status").textContent = "Use buttons to navigate.";
+                    document.getElementById("loading-status").classList.remove("animate-pulse");
+                }).catch(function(err) {
+                    document.getElementById("loading-status").textContent = "Error: Could not find the .epub file.";
+                });
 
-    document.getElementById("prev").addEventListener("click", function(e){
-        rendition.prev();
-        e.preventDefault();
-    }, false);
-</script>
+                document.getElementById("next").onclick = function(e) { rendition.next(); e.preventDefault(); };
+                document.getElementById("prev").onclick = function(e) { rendition.prev(); e.preventDefault(); };
 
+            } catch (e) {
+                document.getElementById("loading-status").textContent = "Reader Error: Check console for details.";
+                console.error(e);
+            }
+        };
+    </script>
 </body>
 </html>
