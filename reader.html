@@ -31,35 +31,37 @@
     </section>
 
     <script>
-        // 1. Path to your ebook on GitHub
-        // Ensure this file is in your 'documents' folder
-        var book = ePub("https://drive.google.com/uc?export=download&id=1btkrelvRiGqzqI0Kw2HmhD5R7KVSyg8U");
-            width: "100%",
-            height: "100%",
-            flow: "paginated",
-            manager: "default"
-        });
+    // 1. Path to your ebook on Google Drive
+    var book = ePub("https://drive.google.com/uc?export=download&id=1btkrelvRiGqzqI0Kw2HmhD5R7KVSyg8U");
+    
+    // 2. THIS WAS THE MISSING PART: We must define 'rendition'
+    var rendition = book.renderTo("viewer", {
+        width: "100%",
+        height: "100%",
+        flow: "paginated",
+        manager: "default"
+    });
 
-        // 2. Display the book
-        var display = rendition.display();
+    // 3. Display the book
+    var display = rendition.display();
 
-        // 3. Navigation Logic
-        document.getElementById("next").addEventListener("click", function(e){
-            rendition.next();
-            e.preventDefault();
-        }, false);
+    // 4. Navigation Logic
+    document.getElementById("next").addEventListener("click", function(e){
+        rendition.next();
+        e.preventDefault();
+    }, false);
 
-        document.getElementById("prev").addEventListener("click", function(e){
-            rendition.prev();
-            e.preventDefault();
-        }, false);
+    document.getElementById("prev").addEventListener("click", function(e){
+        rendition.prev();
+        e.preventDefault();
+    }, false);
 
-        // 4. Keyboard Support
-        document.addEventListener("keyup", function(e){
-            if ((e.keyCode || e.which) == 37) rendition.prev();
-            if ((e.keyCode || e.which) == 39) rendition.next();
-        }, false);
-    </script>
+    // 5. Keyboard Support
+    document.addEventListener("keyup", function(e){
+        if ((e.keyCode || e.which) == 37) rendition.prev();
+        if ((e.keyCode || e.which) == 39) rendition.next();
+    }, false);
+</script>
 
 </body>
 </html>
